@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academia Interactiva - Inclu-Tech</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f0f2f5;
+      font-family: 'Poppins', sans-serif;
+    }
+    .hero-section {
+      background: linear-gradient(135deg, #0d6efd, #6f42c1);
+      color: white;
+    }
+    .tutorial-card {
+      background-color: white;
+      border-radius: 15px;
+      border: none;
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .tutorial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1) !important;
+    }
+    .checklist-item {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      border-radius: 8px;
+    }
+    .checklist-item.completed {
+      text-decoration: line-through;
+      color: #6c757d;
+      background-color: #e9f5e9;
+    }
+    .checklist-item input {
+      margin-right: 10px;
+    }
+    /* Estilos para el simulador de lectura */
+    #sample-text {
+      font-family: 'Poppins', sans-serif;
+      border: 2px dashed #ccc;
+      padding: 20px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+    /* Estilos para el detective de phishing */
+    .phishing-email {
+        font-family: 'Source Code Pro', monospace;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 5px;
+        line-height: 1.6;
+    }
+    .red-flag {
+        background-color: rgba(255, 251, 20, 0.4);
+        cursor: pointer;
+        border-bottom: 2px dotted #ffc107;
+    }
+    .red-flag.revealed {
+        background-color: rgba(255, 193, 7, 0.6);
+        color: black;
+    }
+  </style>
+</head>
+<body>
+
+  
+
+  
+  <section class="py-5 text-center hero-section">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Academia Interactiva</h1>
+      <p class="lead">Aprende haciendo. Completa los desafíos y domina las herramientas de Inclu-Tech.</p>
+       <a href="index.html" id="btn_regresar" class="btn btn-secondary"> ⬅️ Volver al Inicio </a>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
+
+        <div class="col-lg-12">
+          <div class="card tutorial-card shadow-sm p-4">
+            <h3 class="fw-bold text-primary">🚀 Reto 1: Calibración del Intérprete de Señas</h3>
+            <p>Para que la IA te entienda, tu entorno es clave. Completa esta lista de verificación para asegurar una traducción perfecta.</p>
+            <div id="checklist">
+              <label class="checklist-item"><input type="checkbox"> 1. ¿Tu rostro y manos están bien iluminados desde el frente?</label>
+              <label class="checklist-item"><input type="checkbox"> 2. ¿Tienes un fondo simple y de un color diferente al de tu piel?</label>
+              <label class="checklist-item"><input type="checkbox"> 3. ¿La cámara está estable y a la altura de tu pecho?</label>
+              <label class="checklist-item"><input type="checkbox"> 4. ¿Has dado permiso al navegador para usar la cámara?</label>
+            </div>
+            <div id="checklist-feedback" class="alert alert-success mt-3 d-none">
+              <strong>¡Excelente!</strong> Estás listo para comunicarte con tus manos.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12">
+          <div class="card tutorial-card shadow-sm p-4">
+            <h3 class="fw-bold text-primary">🎨 Reto 2: Diseña tu Entorno de Lectura</h3>
+            <p>Cada persona lee de forma diferente. Usa los controles para crear un espacio de lectura cómodo para ti.</p>
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <div class="mb-3">
+                  <label for="fontSize" class="form-label">Tamaño del Texto: <span id="fontSizeValue">18</span>px</label>
+                  <input type="range" class="form-range" min="14" max="32" step="1" id="fontSize" value="18">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Color de Fondo:</label>
+                  <div>
+                    <button class="btn btn-light border" onclick="changeBgColor('#FFFFFF')">Claro</button>
+                    <button class="btn" style="background-color: #FDF3D9;" onclick="changeBgColor('#FDF3D9')">Sepia</button>
+                    <button class="btn btn-dark text-white" onclick="changeBgColor('#212529')">Oscuro</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div id="sample-text" style="font-size: 18px; background-color: #FFFFFF; color: #212529;">
+                  La tecnología inclusiva es una puerta al conocimiento. Al adaptar las herramientas a nuestras necesidades, eliminamos barreras y creamos oportunidades para que todas las personas puedan aprender, crear y comunicarse sin límites.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12">
+          <div class="card tutorial-card shadow-sm p-4">
+            <h3 class="fw-bold text-primary">🕵️ Reto 3: Detective de Phishing</h3>
+            <p>En internet, no todo es lo que parece. Haz clic en las "banderas rojas" de este email falso para descubrir las pistas y protegerte.</p>
+            <div class="phishing-email">
+              <p><strong>De:</strong> Soporte Técnico &lt;soporte@banco-premios.com&gt;</p>
+              <p><strong>Asunto:</strong> <span class="red-flag" data-info="¡Alerta! Los asuntos urgentes o alarmistas buscan que actúes sin pensar.">Urgente: Su cuenta ha sido comprometida</span></p>
+              <hr>
+              <p>Estimado usario,</p>
+              <p>Detectamos actividad sospechosa en su cuenta. Para su seguridad, debe verificar su identidad inmediatamente haciendo clic en el siguiente enlace:</p>
+              <p><a href="#" onclick="event.preventDefault();"><span class="red-flag" data-info="Pasa el ratón sobre un enlace (sin hacer clic) para ver la URL real. Si no coincide con la web oficial, ¡es una trampa!">http://banco-premios.com/seguridad/login.php</span></a></p>
+              <p>Si no lo hace en las próximas 24 horas, <span class="red-flag" data-info="Los estafadores crean una falsa sensación de urgencia para que no tengas tiempo de dudar.">su cuenta será suspendida permanentemente.</span></p>
+              <p>Gracias,<br>El equipo de seguridd</p>
+            </div>
+            <div id="phishing-feedback" class="mt-3">
+              <p>Pistas encontradas: <span id="score">0</span> de 3. ¡Sigue buscando!</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 mb-4">
+    <div class="tutorial-card card shadow-sm text-center">
+      <div class="card-body p-4">
+        <h4 class="card-title">Karaoke de Señas</h4>
+        <p class="card-text text-muted">Adivina y realiza la seña en tiempo real. ¡Gana puntos y supera tus desafíos!</p>
+        <a href="karaoke-de-senas.html" class="btn btn-primary mt-3">Jugar ahora</a>
+        </div>
+      </div>
+  </div>
+  </section>
+
+  <footer class="bg-primary text-white text-center py-4">
+    <p>&copy; 2025 EduInclusiva. Todos los derechos reservados.</p>
+  </footer>
+
+<script>
+// --- SCRIPT PARA TUTORIAL 1: CHECKLIST ---
+const checklist = document.getElementById('checklist');
+const checkboxes = checklist.querySelectorAll('input[type="checkbox"]');
+const checklistFeedback = document.getElementById('checklist-feedback');
+
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', () => {
+    const parentLabel = checkbox.parentElement;
+    if (checkbox.checked) {
+      parentLabel.classList.add('completed');
+    } else {
+      parentLabel.classList.remove('completed');
+    }
+    
+    const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+    if (allChecked) {
+      checklistFeedback.classList.remove('d-none');
+    } else {
+      checklistFeedback.classList.add('d-none');
+    }
+  });
+});
+
+// --- SCRIPT PARA TUTORIAL 2: DISEÑO DE LECTURA ---
+const fontSizeSlider = document.getElementById('fontSize');
+const fontSizeValue = document.getElementById('fontSizeValue');
+const sampleText = document.getElementById('sample-text');
+
+fontSizeSlider.addEventListener('input', (event) => {
+  const newSize = event.target.value;
+  fontSizeValue.textContent = newSize;
+  sampleText.style.fontSize = `${newSize}px`;
+});
+
+function changeBgColor(color) {
+  sampleText.style.backgroundColor = color;
+  sampleText.style.color = (color === '#212529') ? '#FFFFFF' : '#212529';
+}
+
+// --- SCRIPT PARA TUTORIAL 3: DETECTIVE DE PHISHING ---
+const redFlags = document.querySelectorAll('.red-flag');
+const scoreElement = document.getElementById('score');
+let score = 0;
+let foundFlags = new Set();
+
+redFlags.forEach(flag => {
+  flag.addEventListener('click', () => {
+    const info = flag.getAttribute('data-info');
+    
+    if (!flag.classList.contains('revealed')) {
+      flag.classList.add('revealed');
+      if (!foundFlags.has(info)) {
+        score++;
+        foundFlags.add(info);
+      }
+      scoreElement.textContent = score;
+      if (score === 3) {
+        document.getElementById('phishing-feedback').innerHTML = '<p class="alert alert-info"><strong>¡Felicidades, detective!</strong> Has encontrado todas las pistas. Ahora sabes cómo identificar un email peligroso.</p>';
+      }
+    }
+    alert(`PISTA DESCUBIERTA:\n\n${info}`);
+  });
+});
+</script>
+
+</body>
+</html>

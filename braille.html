@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convertidor Braille y Texto - Inclu-Tech</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <style>
+    body { background-color: #e3f2fd; }
+    .container { max-width: 800px; margin-top: 50px; }
+    textarea {
+      height: 150px;
+      font-size: 1.2em;
+      border-radius: 12px;
+    }
+    .braille-output, .braille-input {
+      height: 200px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 20px;
+      white-space: pre-wrap;
+      font-family: 'Braille', monospace;
+      font-size: 2.5em; /* Tamaño de letra más grande para el braille */
+    }
+    .card-braille { border: none; border-radius: 15px; }
+    .microphone-icon {
+        font-size: 2rem;
+        cursor: pointer;
+        color: #0d6efd;
+    }
+    .microphone-icon:hover {
+        color: #0b5ed7;
+    }
+    .converter-section {
+      display: none; /* Oculta todas las secciones por defecto */
+    }
+    .converter-section.active {
+      display: block; /* Muestra la sección activa */
+    }
+  </style>
+</head>
+<body>
+  
+<header class="header-section text-center">
+    <p class="lead mt-3"></p>
+    <a href="index.html" id="btn_regresar" class="btn btn-secondary"> ⬅️ Volver al Inicio </a>
+  </header>
+  <div class="container py-5">
+    <h1 class="text-center text-primary mb-4">Convertidor Braille y Texto</h1>
+    
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-5">
+      <button class="btn btn-primary btn-lg" type="button" data-converter="brailleToText">Braille a Texto</button>
+      <button class="btn btn-secondary btn-lg" type="button" data-converter="textToBraille">Texto a Braille</button>
+      <button class="btn btn-success btn-lg" type="button" data-converter="brailleToAudio">Braille a Audio</button>
+      <button class="btn btn-info btn-lg" type="button" data-converter="textToAudio">Texto a Audio</button>
+      <button class="btn btn-warning btn-lg" type="button" data-converter="audioToText">Audio a Texto</button>
+    </div>
+
+    <div class="card card-braille shadow-sm p-4 converter-section" id="brailleToText">
+      <h2 class="card-title text-center text-secondary">Braille a Texto</h2>
+      <div class="mb-3">
+        <label for="brailleInput" class="form-label">Introduce tu texto en Braille:</label>
+        <textarea class="form-control braille-input" id="brailleInput" rows="5" placeholder="Ej: ⠠⠓⠕⠇⠁"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="brailleFileInput" class="form-label">O sube un archivo de Braille (.txt):</label>
+        <input class="form-control" type="file" id="brailleFileInput" accept=".txt">
+      </div>
+      <div class="mb-3">
+        <label for="text-output" class="form-label">Resultado en Texto:</label>
+        <div id="text-output" class="braille-output border" style="font-size:1.2em; font-family: 'Poppins', sans-serif;"></div>
+      </div>
+    </div>
+
+    <div class="card card-braille shadow-sm p-4 converter-section" id="textToBraille">
+      <h2 class="card-title text-center text-secondary">Texto a Braille</h2>
+      <div class="mb-3">
+        <label for="inputText" class="form-label">Escribe tu texto aquí:</label>
+        <textarea class="form-control" id="inputText" rows="5" placeholder="Ej: Hola, mundo"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="fileInput" class="form-label">O sube un archivo de texto (.txt):</label>
+        <input class="form-control" type="file" id="fileInput" accept=".txt">
+      </div>
+      <div class="mb-3">
+        <label for="braille-output" class="form-label">Resultado en Braille:</label>
+        <div id="braille-output" class="braille-output border"></div>
+      </div>
+    </div>
+
+    <div class="card card-braille shadow-sm p-4 converter-section" id="brailleToAudio">
+        <h2 class="card-title text-center text-secondary">Braille a Audio</h2>
+        <div class="mb-3">
+            <label for="brailleToAudioInput" class="form-label">Introduce el Braille para escuchar:</label>
+            <textarea class="form-control braille-input" id="brailleToAudioInput" rows="5" placeholder="Ej: ⠠⠓⠕⠇⠁"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="brailleToAudioFileInput" class="form-label">O sube un archivo de Braille (.txt):</label>
+            <input class="form-control" type="file" id="brailleToAudioFileInput" accept=".txt">
+        </div>
+        <button id="brailleToAudioButton" class="btn btn-primary w-100">Escuchar Braille</button>
+    </div>
+
+    <div class="card card-braille shadow-sm p-4 converter-section" id="textToAudio">
+      <h2 class="card-title text-center text-secondary">Texto a Audio</h2>
+      <div class="mb-3">
+        <label for="audioText" class="form-label">Escribe el texto que deseas escuchar:</label>
+        <textarea class="form-control" id="audioText" rows="3" placeholder="Ej: Bienvenidos a Inclu-Tech"></textarea>
+      </div>
+      <button id="speakButton" class="btn btn-primary w-100">Escuchar Texto</button>
+    </div>
+
+    <div class="card card-braille shadow-sm p-4 converter-section" id="audioToText">
+      <h2 class="card-title text-center text-secondary">Audio a Texto</h2>
+      <div class="mb-3 text-center">
+        <button id="recordButton" class="btn btn-primary">
+          <span id="record-text">Haz clic para hablar</span> 
+        </button>
+      </div>
+      <div class="mb-3">
+        <label for="audioToTextOutput" class="form-label">Tu discurso convertido a texto:</label>
+        <div id="audioToTextOutput" class="braille-output border" style="height: 100px; font-size: 1em; font-family: 'Poppins', sans-serif;"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="bg-primary text-white text-center py-3 mt-5 fixed-bottom">
+    <p>&copy; 2025 Inclu-Tech. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const brailleMap = {
+      'a': '⠁', 'b': '⠃', 'c': '⠉', 'd': '⠙', 'e': '⠑', 'f': '⠋', 'g': '⠛', 'h': '⠓', 'i': '⠊', 'j': '⠚',
+      'k': '⠅', 'l': '⠇', 'm': '⠍', 'n': '⠝', 'o': '⠕', 'p': '⠏', 'q': '⠟', 'r': '⠗', 's': '⠎', 't': '⠞',
+      'u': '⠥', 'v': '⠧', 'w': '⠺', 'x': '⠭', 'y': '⠽', 'z': '⠵',
+      '1': '⠼⠁', '2': '⠼⠃', '3': '⠼⠉', '4': '⠼⠙', '5': '⠼⠑', '6': '⠼⠋', '7': '⠼⠛', '8': '⠼⠓', '9': '⠼⠊', '0': '⠼⠚',
+      '.': '⠲', ',': '⠂', '?': '⠢', '!': '⠖', 'ñ': '⠻', 'ü': '⠬', 'á': '⠷', 'é': '⠾', 'í': '⠌', 'ó': '⠭', 'ú': 'û'
+    };
+    
+    const textMap = {};
+    for (const key in brailleMap) {
+        textMap[brailleMap[key]] = key;
+    }
+
+    const inputText = document.getElementById('inputText');
+    const fileInput = document.getElementById('fileInput');
+    const brailleOutput = document.getElementById('braille-output');
+
+    const brailleInput = document.getElementById('brailleInput');
+    const brailleFileInput = document.getElementById('brailleFileInput');
+    const textOutput = document.getElementById('text-output');
+
+    const brailleToAudioInput = document.getElementById('brailleToAudioInput');
+    const brailleToAudioFileInput = document.getElementById('brailleToAudioFileInput');
+    const brailleToAudioButton = document.getElementById('brailleToAudioButton');
+
+    const audioText = document.getElementById('audioText');
+    const speakButton = document.getElementById('speakButton');
+    const recordButton = document.getElementById('recordButton');
+    const recordText = document.getElementById('record-text');
+    const audioToTextOutput = document.getElementById('audioToTextOutput');
+
+    // Manejo de la navegación por botones
+    const converterButtons = document.querySelectorAll('[data-converter]');
+    const converterSections = document.querySelectorAll('.converter-section');
+
+    converterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            converterSections.forEach(section => {
+                section.classList.remove('active');
+            });
+            const targetId = button.getAttribute('data-converter');
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
+
+    // Función genérica para leer archivos
+    function readFile(file, callback) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            callback(event.target.result);
+        };
+        reader.onerror = (error) => {
+            console.error('Error al leer el archivo:', error);
+            alert('Error al leer el archivo. Por favor, intenta de nuevo.');
+        };
+        reader.readAsText(file);
+    }
+
+    // Convertidor de Texto a Braille
+    inputText.addEventListener('input', () => {
+      let text = inputText.value.toLowerCase();
+      let brailleText = '';
+      for (const char of text) {
+        brailleText += brailleMap[char] || '?';
+      }
+      brailleOutput.textContent = brailleText;
+    });
+
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            readFile(file, (content) => {
+                inputText.value = content;
+                inputText.dispatchEvent(new Event('input')); // Trigger conversion
+            });
+        }
+    });
+
+    // Convertidor de Braille a Texto
+    brailleInput.addEventListener('input', () => {
+      let braille = brailleInput.value;
+      let plainText = '';
+      for (const char of braille) {
+        plainText += textMap[char] || '?';
+      }
+      textOutput.textContent = plainText;
+    });
+
+    brailleFileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            readFile(file, (content) => {
+                brailleInput.value = content;
+                brailleInput.dispatchEvent(new Event('input')); // Trigger conversion
+            });
+        }
+    });
+    
+    // Funcionalidad de Braille a Audio
+    if ('speechSynthesis' in window) {
+      const synth = window.speechSynthesis;
+
+      brailleToAudioButton.addEventListener('click', () => {
+        let braille = brailleToAudioInput.value;
+        let plainText = '';
+        for (const char of braille) {
+          plainText += textMap[char] || '';
+        }
+        if (plainText.trim() !== '') {
+          const utterance = new SpeechSynthesisUtterance(plainText);
+          utterance.lang = 'es-ES';
+          synth.speak(utterance);
+        }
+      });
+      
+      brailleToAudioFileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            readFile(file, (content) => {
+                brailleToAudioInput.value = content;
+                brailleToAudioButton.click(); // Trigger the speech
+            });
+        }
+      });
+    } else {
+      brailleToAudioButton.disabled = true;
+      brailleToAudioButton.textContent = 'Tu navegador no soporta Texto a Audio';
+    }
+
+    // Funcionalidad de Texto a Audio
+    if ('speechSynthesis' in window) {
+      const synth = window.speechSynthesis;
+      speakButton.addEventListener('click', () => {
+        const textToSpeak = audioText.value;
+        if (textToSpeak.trim() !== '') {
+          const utterance = new SpeechSynthesisUtterance(textToSpeak);
+          utterance.lang = 'es-ES';
+          synth.speak(utterance);
+        }
+      });
+    } else {
+      speakButton.disabled = true;
+      speakButton.textContent = 'Tu navegador no soporta Texto a Audio';
+    }
+
+    // Funcionalidad de Audio a Texto
+    if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'es-ES';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      let isRecording = false;
+
+      recordButton.addEventListener('click', () => {
+        if (!isRecording) {
+          recognition.start();
+        } else {
+          recognition.stop();
+        }
+      });
+
+      recognition.onstart = () => {
+        isRecording = true;
+        recordText.textContent = 'Hablando...';
+      };
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        audioToTextOutput.textContent = transcript;
+        isRecording = false;
+        recordText.textContent = 'Haz clic para hablar';
+      };
+
+      recognition.onend = () => {
+        isRecording = false;
+        recordText.textContent = 'Haz clic para hablar';
+      };
+
+      recognition.onerror = (event) => {
+        console.error('Speech recognition error', event.error);
+        isRecording = false;
+        recordText.textContent = 'Error. Intenta de nuevo';
+      };
+    } else {
+      recordButton.disabled = true;
+      recordText.textContent = 'Tu navegador no soporta Audio a Texto';
+    }
+  </script>
+
+</body>
+</html>

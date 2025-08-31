@@ -1,0 +1,113 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #003366, #0066cc);
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.menu {
+  margin-top: 50px;
+}
+#sopa {
+  display: grid;
+  grid-template-columns: repeat(15, 30px);
+  gap: 4px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.celda {
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid #444;
+  background-color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
+.celda.seleccionada {
+  background-color: rgb(0, 255, 76); 
+}
+
+.celda {
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid #444;
+  background-color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
+
+.celda.encontrada {
+  background-color: #007bff !important; 
+  color: white !important;
+  font-weight: bold;
+}
+
+
+
+#lista-palabras {
+  list-style: none;
+  padding: 0;
+  font-size: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+.celda {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.celda input {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+
+  footer {
+  text-align: center;
+  padding: 10px;
+  background: linear-gradient(135deg, #003366, #0066cc);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 15px;
+  color: antiquewhite;
+}
+}
+button {
+  font-size: 20px;
+  padding: 15px 30px;
+  margin: 20px;
+  cursor: pointer;
+  background-color: #2196f3;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  transition: background-color 0.3s;
+}

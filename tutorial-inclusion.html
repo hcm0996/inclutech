@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial: Empatía en la Aula Digital</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #6f42c1; /* Color de fondo actualizado */
+      font-family: 'Poppins', sans-serif;
+      color: #f0f2f5;
+    }
+    .tutorial-container {
+      max-width: 900px;
+      margin-top: 50px;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      color: #212529;
+    }
+    .section-title {
+      font-weight: 600;
+      color: #0d6efd;
+    }
+    .story-choices .btn {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    .story-panel {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 2rem;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="text-center py-4">
+    <a href="academia-inclutech.html" class="btn btn-outline-light">⬅️ Volver a la Academia</a>
+    <h1 class="section-title mt-3 text-white">Tutorial: Empatía en la Aula Digital</h1>
+    <p class="lead">Ayuda a tus compañeros virtuales a superar los obstáculos de la inclusión.</p>
+  </header>
+
+  <main class="container tutorial-container my-5 text-center">
+    <div class="story-panel shadow-sm">
+      <p id="story-text" class="h5"></p>
+      <div class="story-choices mt-4"></div>
+      <div id="story-feedback" class="mt-3"></div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // LÓGICA DEL TUTORIAL: INCLUSIÓN EDUCATIVA
+    const storyText = document.getElementById('story-text');
+    const storyChoices = document.querySelector('.story-choices');
+    const storyFeedback = document.getElementById('story-feedback');
+
+    const inclusionStory = [
+      {
+        text: 'Tienes un compañero con baja visión. La fuente de la página web es muy pequeña. ¿Cómo lo ayudas?',
+        correct: 'Aumentar el tamaño de la fuente para todos.',
+        incorrect: 'Pedirle que se acerque más a la pantalla.',
+        correctFeedback: '¡Correcto! La accesibilidad es crear herramientas que se adapten a la persona, no al revés. La herramienta de aumentar la fuente beneficia a todos.',
+        incorrectFeedback: 'Esa no es la mejor opción. Poner la responsabilidad en la persona con discapacidad no es inclusivo. La tecnología debe adaptarse a las necesidades del usuario.'
+      },
+      {
+        text: 'Un estudiante con problemas de audición no puede participar en una clase en línea. ¿Qué solución técnica le propones?',
+        correct: 'Habilitar los subtítulos automáticos en la plataforma.',
+        incorrect: 'Grabar la clase y que la vea más tarde.',
+        correctFeedback: '¡Exacto! Los subtítulos le permiten seguir la clase en tiempo real. La inclusión es permitir la participación activa de todos.',
+        incorrectFeedback: 'No es la mejor solución. Grabar la clase no le permite hacer preguntas o participar. La inclusión es sobre el acceso en el momento.'
+      }
+    ];
+
+    let currentStoryStep = 0;
+
+    function loadStoryStep() {
+      if (currentStoryStep < inclusionStory.length) {
+        const step = inclusionStory[currentStoryStep];
+        storyText.textContent = step.text;
+        storyChoices.innerHTML = `<button class="btn btn-success" data-choice="correct">${step.correct}</button>
+                                  <button class="btn btn-warning" data-choice="incorrect">${step.incorrect}</button>`;
+        storyFeedback.textContent = '';
+      } else {
+        storyText.textContent = '¡Has completado el tutorial de empatía!';
+        storyChoices.innerHTML = '';
+        storyFeedback.innerHTML = '<p class="text-success h5">¡Gracias por aprender sobre inclusión digital!</p>';
+      }
+    }
+
+    storyChoices.addEventListener('click', (e) => {
+      const choice = e.target.getAttribute('data-choice');
+      if (choice) {
+        const step = inclusionStory[currentStoryStep];
+        if (choice === 'correct') {
+          storyFeedback.textContent = step.correctFeedback;
+          storyFeedback.style.color = 'green';
+        } else {
+          storyFeedback.textContent = step.incorrectFeedback;
+          storyFeedback.style.color = 'red';
+        }
+        currentStoryStep++;
+        setTimeout(loadStoryStep, 3000);
+      }
+    });
+
+    loadStoryStep();
+  </script>
+
+</body>
+</html>

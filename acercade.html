@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acerca de Inclu-Tech</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Hacemos que el body use flexbox para empujar el footer al final */
+    body {
+      background: #f9fafb;
+      font-family: "Segoe UI", sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+    }
+    main {
+      flex: 1;
+    }
+    .hero {
+      background: linear-gradient(135deg, #004080, #3366cc);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+    }
+    .section-title {
+      font-weight: bold;
+      margin: 60px 0 30px;
+      text-align: center;
+      color: #004080;
+    }
+    .card {
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      height: 100%;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+    }
+    .card i {
+      font-size: 40px;
+      margin-bottom: 15px;
+      color: #004080;
+    }
+    .btn-custom {
+      background-color: #004080;
+      color: white;
+      border-radius: 30px;
+      padding: 10px 25px;
+      font-weight: bold;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+    .btn-custom:hover {
+      background-color: #3366cc;
+      color: white;
+    }
+    .footer {
+      background: linear-gradient(135deg, #004080, #3366cc);
+      color: white;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 14px;
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <h1 class="display-4 fw-bold">Acerca de Inclu-Tech</h1>
+      <p class="lead">Educación con propósito, inclusión y tecnología.</p>
+    </section>
+
+    <!-- Botón volver al inicio centrado -->
+    <div class="text-center mt-4">
+      <a href="index.html" class="btn-custom">
+          <i class="fas fa-arrow-left"></i> Volver al inicio
+      </a>
+    </div>
+
+    <!-- Historia -->
+    <div class="container my-5 text-center">
+      <h2 class="section-title">Nuestra Historia</h2>
+      <p class="fs-5">
+        <strong>Inclu-Tech</strong> es una plataforma creada por el equipo <strong>Nariño-Tech 4.0</strong>, participante de la Hackathon CiberPaz 2025, 
+        con el propósito de promover la inclusión digital y social de personas con discapacidades sensoriales y cognitivas.  
+        Nuestro compromiso es diseñar soluciones tecnológicas accesibles que permitan a cada persona aprender, 
+        comunicarse y participar en igualdad de condiciones.
+      </p>
+    </div>
+
+    <!-- Qué ofrecemos -->
+    <div class="container my-5">
+      <h2 class="section-title">¿Qué encontrarás en Inclu-Tech?</h2>
+      <div class="row g-4">
+
+        <!-- Intérprete de señas -->
+        <div class="col-md-6">
+          <div class="card p-4 text-center">
+            <i class="fas fa-hands"></i>
+            <h5 class="fw-bold">🤟 Intérprete Lengua de Señas</h5>
+            <p>Un intérprete en tiempo real diseñado para personas sordas o con dificultades auditivas, 
+            que traduce la lengua de señas a texto o voz para mejorar la comunicación en entornos digitales.</p>
+          </div>
+        </div>
+
+        <!-- Audiolibros -->
+        <div class="col-md-6">
+          <div class="card p-4 text-center">
+            <i class="fas fa-headphones"></i>
+            <h5 class="fw-bold">🎧 Audiolibros y Lectura</h5>
+            <p>Biblioteca de recursos en audio que facilita el acceso a la lectura a personas con discapacidad visual 
+            o con dificultades de comprensión lectora.</p>
+          </div>
+        </div>
+
+        <!-- Juegos Educativos -->
+        <div class="col-md-6">
+          <div class="card p-4 text-center">
+            <i class="fas fa-gamepad"></i>
+            <h5 class="fw-bold">🕹️ Juegos Educativos</h5>
+            <p>Actividades lúdicas e interactivas que permiten aprender mientras se juega, 
+            diseñadas para estimular las habilidades cognitivas y sensoriales.</p>
+          </div>
+        </div>
+
+        <!-- Academia -->
+        <div class="col-md-6">
+          <div class="card p-4 text-center">
+            <i class="fas fa-laptop"></i>
+            <h5 class="fw-bold">💻 Academia Inclu-Tech</h5>
+            <p>Un espacio educativo con material adaptado y accesible, donde estudiantes y docentes 
+            pueden acceder a contenidos inclusivos y de calidad.</p>
+          </div>
+        </div>
+
+        <!-- Convertidor a Braille -->
+        <div class="col-md-6">
+          <div class="card p-4 text-center">
+            <i class="fas fa-braille"></i>
+            <h5 class="fw-bold">⠿ Convertidor a Braille</h5>
+            <p>Una herramienta que transforma cualquier texto en Braille unificado, 
+            facilitando la comprensión lectora para personas ciegas.</p>
+          </div>
+        </div>
+
+        <!-- CiberPaz -->
+        <div class="col-md-6">
+          <div class="card p-4 text-center">
+            <i class="fas fa-handshake"></i>
+            <h5 class="fw-bold">🤝 Módulo de Sensibilización CiberPaz 2025</h5>
+            <p>Un espacio dedicado a la reflexión y formación sobre la paz digital, 
+            la convivencia y el respeto en entornos virtuales. 
+            Puedes explorar más en la página de <a href="https://ciberpaz2025.com" target="_blank">CiberPaz 2025</a>.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2025 Nariño-Tech 4.0. Todos los derechos reservados.</p>
+  </div>
+
+</body>
+</html>

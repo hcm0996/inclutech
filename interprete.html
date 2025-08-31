@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Demo de Señales con MediaPipe + JS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <link href="stylesin.css" rel="stylesheet">
+  
+</head>
+    <body>
+    
+     <div class="contenedor-izquierda">
+     <a href="index.html" class="btn-bonito">⬅️ Volver al inicio</a>
+    </div>
+    
+      
+  <div class="wrap">
+    
+    <h1 id="title">Intérprete en tiempo real de Lenguaje de Señas Colombiano 🖐️</h1>
+
+    <!-- CONTENEDOR FLEXIBLE -->
+    <div class="layout">
+      <!-- CÁMARA Y CANVAS -->
+      <div class="stage">
+        <video id="video" playsinline></video>
+        <canvas id="output" width="640" height="480"></canvas>
+        <div class="hud">
+          <div class="badge" id="label">…</div>
+          <div class="badge" id="label2"></div>
+        </div>
+      </div>
+
+      <!-- PANEL DE DEBUG -->
+      <div id="infoPanel" class="debug-panel">
+        <h4>📖 Información de la letra</h4>
+        <hr style="border: none; height: 1px; background-color: black;" />
+         <em>Selecciona una letra para ver su explicación</em>
+      </div>
+
+    </div>
+
+    
+
+     <!-- Contenedor de botones con flex-wrap para distribución -->
+  <div id="letterButtons">
+    <!-- Los botones se crearán con JS -->
+    
+  </div>
+
+
+    <!-- LEYENDA -->
+    <div class="legend">
+      <strong>¡Importante! Si no ves la cámara, debes permitir el acceso en la configuracion del navegador. Funciona mejor con buena luz.</strong><br> <br>
+      NOTA: Esta es una versión DEMO realizada para producto minimo viable (MVP), se realizó a traves de heuristica y condicionales utilizando las librerias de: <code>@mediapipe</code><br>
+      Se espera a futuro entrenar un modelo de red neuronal y trabajar con <code>@tensorflow</code> para facilitar el reconocimiento y añadir palabras completas.
+    </div>
+  </div>
+
+  <!-- LIBRERÍAS -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+
+  <!-- TU SCRIPT -->
+  <script src="js/script.js"></script>
+</body>
+</html>

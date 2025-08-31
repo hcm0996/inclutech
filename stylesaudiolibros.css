@@ -1,0 +1,174 @@
+
+body {
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #003366, #0066cc);
+  
+  
+
+  color: white;
+}
+
+/* Estilo para el header */
+header {
+background: linear-gradient() #003366;
+  color: white;
+  padding: 20px;
+}
+
+/* Contenedor para los audiolibros */
+#audiobooks-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Estilo para las tarjetas de los audiolibros */
+.audiobook {
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin: 15px;
+  width: 250px;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilo para las imágenes de los audiolibros */
+.audiobook img {
+  width: 100%;
+  border-radius: 5px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* Estilo para los títulos */
+.audiobook h3 {
+  font-size: 18px;
+  color: #333;
+  margin: 10px 0;
+}
+
+/* Estilo para la descripción */
+.audiobook p {
+  font-size: 14px;
+  color: #000000;
+  margin: 5px 0;
+}
+
+/* Estilo para el reproductor de audio */
+.audiobook audio {
+  width: 100%;
+  margin-top: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background: linear-gradient(135deg, #003366, #0066cc);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 20px;
+}
+ /* Estilo básico para el botón de escuchar instrucciones */
+/* Estilo básico para el botón de escuchar instrucciones */
+
+button {
+  background-color: #0066cc;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Añadimos la transición de transformación */
+  
+}
+
+/* Efecto hover: cambia el color de fondo y realiza una pequeña animación */
+button:hover {
+  background-color: #0b87fa;
+  transform: scale(1.05); /* Le da un efecto de agrandamiento al pasar el ratón */
+}
+
+/* Efecto active: cuando se hace clic */
+button:active {
+  background-color: #0a7ac7;
+  transform: scale(1); /* Reduce el tamaño al hacer clic */
+}
+
+
+
+/* Estilo para cada tarjeta */
+.audiobook {
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin: 15px;
+  width: 16%;  /* Ajustado para que quepan 5 tarjetas */
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  max-width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Transición suave para el efecto */
+}
+.audiobook img {
+  width: 100%;
+  border-radius: 5px;
+  height: auto;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+  transition: box-shadow 0.3s ease; /* Efecto suave cuando cambia la sombra */
+}
+
+
+/* Efecto hover para la imagen */
+.audiobook img:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Sombra más intensa al pasar el ratón */
+}
+
+/* Efecto cuando el mouse pasa sobre la tarjeta */
+.audiobook:hover {
+  transform: translateY(-10px);  /* Mueve la tarjeta ligeramente hacia arriba */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Aumenta el sombreado */
+}
+
+/* Estilo para las imágenes */
+.audiobook img {
+  width: 100%;
+  border-radius: 5px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* Estilo para los títulos */
+.audiobook h3 {
+  font-size: 18px;
+  color: #000000;
+  margin: 10px 0;
+}
+
+/* Estilo para la descripción */
+.audiobook p {
+  font-size: 14px;
+  color: #3172eb;
+  margin: 5px 0;
+}
+
+/* Estilo para el reproductor de audio */
+.audiobook audio {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.contenedor-arriba-derecha {
+  display: flex;
+  justify-content: flex-end; /* mueve el contenido a la derecha */
+  margin-top: 20px;          /* espacio desde arriba */
+  margin-right: 20px;        /* espacio desde la derecha */
+}

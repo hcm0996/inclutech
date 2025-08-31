@@ -1,0 +1,168 @@
+/* Asegura que body ocupe toda la pantalla */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; /* ocupa todo el espacio disponible */
+}
+
+footer {
+  margin-top: auto; /* asegura que quede abajo */
+}
+
+/* Grid de cards */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 tarjetas por fila */
+  gap: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) { /* tablets y pantallas medias */
+  .grid-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) { /* móviles */
+  .grid-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Opcional: asegura que todas las cards tengan la misma altura */
+.grid-cards .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.custom-navbar {
+  background: linear-gradient(90deg, #003366, #0066cc); /* azul oscuro a azul medio */
+}
+
+
+
+.custom-navbar .navbar-brand {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ffffff !important;
+  text-transform: uppercase;
+
+  position: absolute;   /* permite centrarlo */
+  left: 50%;            /* mueve el logo al centro */
+  transform: translateX(-50%); /* ajusta exactamente al centro */
+  
+}
+
+.custom-navbar .nav-link {
+  color: #fff !important;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #ffd700 !important; /* dorado en hover */
+}
+
+body {
+  background-color: #f8f9fa;
+  background-image: url('imgs/imagen2-fondo.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+.accessibility-icon {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
+.navbar, .hero-section, .py-5, footer {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-section .display-5 {
+  color: #FFFFFF;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-weight: 500;
+  font-size: 40px;
+  background-color: rgba(0, 0, 0, 0.3); /* negro semi-transparente */
+  padding: 20px 0; /* altura */
+  
+  position: relative;
+  
+  
+}
+
+.hero-section .lead {
+  color: #FFFFFF;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+
+
+footer {
+  background: linear-gradient(90deg, #003366, #0066cc); /* igual al navbar */
+  color: #fff;
+  padding: 1rem 0; /* más compacto */
+  text-align: center;
+}
+
+footer p {
+  margin: 0; /* elimina espacio extra */
+  font-size: 0.9rem; /* un poco más pequeño */
+}
+
+.card {
+  
+  background-color: rgba(255, 255, 255, 0.7); /* blanco con 85% opacidad */
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* brillo claro */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255);
+
+}
+.navbar .fa-facebook:hover { color: #3b5998; }
+.navbar .fa-twitter:hover { color: #1da1f2; }
+.navbar .fa-instagram:hover { color: #e1306c; }
+.navbar .fa-youtube:hover { color: #ff0000; }
+
+
+
+

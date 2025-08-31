@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audiolibros</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesaudiolibros.css">
+</head>
+<body>
+  <header style="text-align: center;">📚 Audiolibros 
+    <br>
+    <br>
+    <button onclick="speakText('Bienvenido a la sección de audiolibros. Haz clic en los botones para escuchar un libro.')">
+    Escuchar instrucciones
+  </button>
+  </header>
+    <div class="contenedor-arriba-derecha">
+      <a href="index.html" id="btn_regresar" class="btn btn-secondary"> ⬅️ Volver al Inicio </a>
+    </div> 
+  
+  <div class="container" id="audiobooks-container">
+    <!-- Aquí se insertarán los audiolibros desde JS -->
+  </div>
+  <footer>© Nariño Tech 4.0 - Todos los derechos reservados</footer>
+
+  <script src="/js/scriptaudio.js"></script>
+</body>
+</html>

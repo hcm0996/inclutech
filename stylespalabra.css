@@ -1,0 +1,77 @@
+body {
+  font-family: 'Poppins', sans-serif; 
+  background: linear-gradient(135deg, #003366, #0066cc);
+  margin: 0;
+  padding: 0;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  box-sizing: border-box;
+  animation: fadeIn 1s ease-in;
+}
+
+.game-container {
+  background: rgb(255, 255, 255);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  max-width: 400px;
+  margin: auto;
+}
+
+button.option {
+  font-size: 40px;
+  margin: 10px;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button.option:hover {
+  background-color: #d0eaff;
+}
+
+#feedback {
+  font-size: 18px;
+  margin-top: 20px;
+  color: #333;
+}
+.restarBtn {
+    background-color: #ffcc00; 
+  color: #000000; 
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+footer {
+  text-align: center;
+  padding: 10px;
+  background: linear-gradient(135deg, #003366, #0066cc);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 15px;
+  color: antiquewhite;
+}
+button {
+  font-size: 20px;
+  padding: 15px 30px;
+  margin: 20px;
+  cursor: pointer;
+  background-color: #2196f3;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  transition: background-color 0.3s;
+}

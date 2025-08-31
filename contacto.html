@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acerca de Inclu-Tech</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      background: #f9fafb;
+      font-family: "Segoe UI", sans-serif;
+    }
+    .hero {
+      background: linear-gradient(135deg, #004080, #3366cc);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+    }
+    .section-title {
+      font-weight: bold;
+      margin: 60px 0 30px;
+      text-align: center;
+      color: #004080;
+    }
+    .card {
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      height: 100%;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+    }
+    .card i {
+      font-size: 40px;
+      margin-bottom: 15px;
+      color: #004080;
+    }
+    .btn-custom {
+      background-color: #004080;
+      color: white;
+      border-radius: 30px;
+      padding: 10px 25px;
+      font-weight: bold;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+    .btn-custom:hover {
+      background-color: #3366cc;
+      color: white;
+    }
+    .content {
+      flex: 1; /* empuja el footer hacia abajo */
+    }
+    .footer {
+      background: linear-gradient(135deg, #004080, #3366cc);
+      color: white;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 14px;
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Contenido principal -->
+  <div class="content">
+
+    <!-- Hero -->
+    <section class="hero">
+      <h1 class="display-4 fw-bold">Nariño-Tech 4.0</h1>
+    </section>
+
+    <!-- Botón volver al inicio centrado -->
+    <div class="text-center mt-4">
+      <a href="index.html" class="btn-custom">
+          <i class="fas fa-arrow-left"></i> Volver al inicio
+      </a>
+    </div>
+
+
+    <!-- Integrantes -->
+    <div class="container my-5">
+      <h2 class="section-title">Integrantes del equipo</h2>
+      <div class="row g-4">
+
+        <div class="col-md-6">
+          <div class="card p-4 text-center">
+            <i class="fas fa-female"></i>
+            <h3>Luisa Fernanda Tobar Reyes</h3>
+            <p>✉️ <strong>Correo:</strong> anilu011074@gmail.com</p>
+            <p>📞 <strong>Teléfono:</strong> +57 317 877 7415</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card p-4 text-center">
+            <i class="fas fa-male"></i>
+            <h3>Javier Alejandro Enriquez Chagueza</h3>
+            <p>✉️ <strong>Correo:</strong> alejoenriquez96@gmail.com</p>
+            <p>📞 <strong>Teléfono:</strong> +57 310 545 4647</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card p-4 text-center">
+            <i class="fas fa-male"></i>
+            <h3>Cristhian Camilo Pantoja Bucheli</h3>
+            <p>✉️ <strong>Correo:</strong> Cristiancamilo996@gmail.com</p>
+            <p>📞 <strong>Teléfono:</strong> +57 314 753 0093</p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card p-4 text-center">
+            <i class="fas fa-male"></i>
+            <h3>Yordy Anyerson Andrade Rodríguez</h3>
+            <p>✉️ <strong>Correo:</strong> andradeyordy1118@gmail.com</p>
+            <p>📞 <strong>Teléfono:</strong> +57 318 430 9088</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2025 Nariño-Tech 4.0. Todos los derechos reservados.</p>
+  </div>
+
+</body>
+</html>

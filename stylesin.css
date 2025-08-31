@@ -1,0 +1,247 @@
+
+  body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  margin: 0;
+  background: #0b1220;
+  background: linear-gradient(90deg, #4e6d96, #133c79); /* igual al navbar */
+  background-size: cover;
+  color: #e8eefc;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  
+}
+
+#title{
+
+    text-align: center;
+    color: whitesmoke;
+     text-shadow: 
+    -1px -1px 0 black,  
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1100px;
+  padding: 2px;
+}
+
+.stage {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  padding: 5px;
+  padding-right: 15px;
+  background: linear-gradient(90deg, #838485, s#031e4e); /* igual al navbar */
+}
+
+video {
+  display: none;
+ 
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  padding: 5px;              /* espacio interno */
+  display: inline-block;      /* ajusta al tamaño del texto */
+  border-radius: 12px;    
+}
+
+.hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.badge {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: rgba(13, 148, 136, .25);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 15px rgba(13,148,136,0.4);
+}
+
+#label2 {
+  font-size: 35px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: rgba(160, 185, 183, 0.25);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 15px rgba(13,148,136,0.4);
+  text-shadow: 
+    -1px -1px 0 black,  
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
+
+#label {
+   text-shadow: 
+    -1px -1px 0 black,  
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
+
+
+.tips {
+  font-size: 14px;
+  opacity: .85;
+  background: rgba(2,6,23,.7);
+  padding: 8px 12px;
+  border-radius: 10px;
+  line-height: 1.35;
+}
+
+.legend {
+  margin-top: 14px;
+  font-size: 14px;
+  opacity: .9;
+  text-align: center;
+}
+
+code {
+  background: rgba(148,163,184,.15);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+/* Layout cámara + panel */
+.layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.debug-panel {
+    
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  text-align: center;
+  font-weight: 550;
+  color: rgb(255, 255, 255);
+  background: linear-gradient(90deg, #4e6d96, #133c79);
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #000000;
+  width: 300px;
+  height: 480px;
+  overflow-y: auto;
+  white-space: pre-line;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  scroll-behavior: smooth;
+  margin-bottom: 10px; /* espacio debajo del panel */
+}
+
+.debug-panel::-webkit-scrollbar {
+  display: none;            /* Chrome, Edge, Safari */
+}
+
+/* Botones de letras */
+.letter-btn {
+  background: #0d9488;
+  border: none;
+  color: white;
+  font-size: clamp(14px, 2vw, 18px);
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.letter-btn:hover {
+  background: #14b8a6;
+}
+
+.letter-btn.selected {
+  background: #065f46;
+}
+
+/* Contenedor de botones */
+#letterButtons {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px;
+  width: 100%;
+  padding-left: 90px;
+  padding-right: 100px;
+  max-width: 900px;
+  min-height: 60px;
+  justify-content: center;
+  overflow-y: auto;
+  margin-top: 10px; /* espacio arriba de los botones */
+}
+
+/* Contenedor principal */
+#main-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .debug-panel {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+  }
+
+  .badge {
+    font-size: 40px;
+  }
+}
+
+.btn-bonito {
+  background: linear-gradient(90deg, #4e6d96, #133c79);
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s ease;
+}
+
+.btn-bonito:hover {
+  background: linear-gradient(90deg, #133c79, #4e6d96);
+  transform: scale(1.05);
+}
+
+.btn-bonito:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.contenedor-izquierda {
+  text-align: left;   /* alinea el contenido a la izquierda */
+  margin-left: 1px;  /* opcional, agrega separación desde el borde */
+}

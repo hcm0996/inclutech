@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diccionario de Lengua de Señas Colombiana (LSC)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #e3f2fd;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+    }
+    .tutorial-container {
+      max-width: 900px;
+      margin-top: 50px;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .section-title {
+      font-weight: 600;
+      color: #6f42c1;
+    }
+    .sign-card {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      min-height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .sign-image {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      margin: 1rem auto;
+      border: 1px solid #dee2e6;
+    }
+    #search-bar {
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-size: 1.2em;
+    }
+    .btn-search {
+        border-radius: 50px;
+    }
+    .empty-state {
+        color: #6c757d;
+        font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="text-center py-4">
+    <a href="academia-inclutech.html" class="btn btn-outline-primary">⬅️ Volver a la Academia</a>
+    <h1 class="display-5 mt-3 section-title">Diccionario LSC</h1>
+    <p class="lead text-dark">Escribe una palabra para ver su seña en Lengua de Señas Colombiana.</p>
+  </header>
+
+  <main class="container tutorial-container my-5">
+    
+    <section id="sign-dictionary" class="mb-5">
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-8">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="search-bar" placeholder="Buscar palabra..." aria-label="Buscar palabra">
+            <button class="btn btn-primary btn-search" type="button" id="search-button">Buscar</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="sign-card shadow-sm mt-4" id="sign-result-card">
+        <div id="sign-result-content">
+          <p class="empty-state">La seña aparecerá aquí.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-primary text-white text-center py-4 mt-5">
+    <p>Inclu-Tech &copy; 2025</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Base de datos de señas (puedes agregar más palabras y URLs)
+    const signDictionary = {
+      "hola": { img: "https://assets.inclutech.com/lsc-hola.jpg", desc: "Mueve la mano de forma lateral cerca del oído." },
+      "gracias": { img: "https://assets.inclutech.com/lsc-gracias.jpg", desc: "Abre la mano y llévala al corazón." },
+      "amigo": { img: "https://assets.inclutech.com/lsc-amigo.jpg", desc: "Entrelaza los dedos índices." },
+      "ayuda": { img: "https://assets.inclutech.com/lsc-ayuda.jpg", desc: "Forma un puño con el pulgar arriba y mueve la mano hacia ti." },
+      "familia": { img: "https://assets.inclutech.com/lsc-familia.jpg", desc: "Mueve los dedos en un círculo, como si abrazaras a varias personas." },
+      "escuela": { img: "https://assets.inclutech.com/lsc-escuela.jpg", desc: "Junta las manos como si estuvieras leyendo un libro." },
+      "inclusion": { img: "https://assets.inclutech.com/lsc-inclusion.jpg", desc: "Envuelve una mano sobre la otra, como un abrazo." },
+      "tecnologia": { img: "https://assets.inclutech.com/lsc-tecnologia.jpg", desc: "Simula el movimiento de teclear en un teclado." },
+      "medio ambiente": { img: "https://assets.inclutech.com/lsc-medioambiente.jpg", desc: "Combina las señas de 'medio' y 'ambiente'." },
+      "agua": { img: "https://assets.inclutech.com/lsc-agua.jpg", desc: "Forma una 'W' con los dedos y muévela hacia abajo." }
+    };
+
+    const searchBar = document.getElementById('search-bar');
+    const searchButton = document.getElementById('search-button');
+    const signResultContent = document.getElementById('sign-result-content');
+
+    function showSign() {
+      const searchTerm = searchBar.value.toLowerCase().trim();
+      const signInfo = signDictionary[searchTerm];
+      
+      if (signInfo) {
+        signResultContent.innerHTML = `
+          <h5 class="card-title">${searchTerm.toUpperCase()}</h5>
+          <img src="${signInfo.img}" class="sign-image" alt="Seña para ${searchTerm}">
+          <p class="mt-3 text-muted">${signInfo.desc}</p>
+        `;
+      } else {
+        signResultContent.innerHTML = `
+          <p class="empty-state">Lo sentimos, no se encontró la seña para "${searchTerm}".</p>
+        `;
+      }
+    }
+
+    searchButton.addEventListener('click', showSign);
+    searchBar.addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        showSign();
+      }
+    });
+  </script>
+</body>
+</html>

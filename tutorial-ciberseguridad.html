@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial: Ciberseguridad</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0b314a;
+      font-family: 'Poppins', sans-serif;
+      color: #f0f2f5;
+    }
+    .tutorial-container {
+      max-width: 900px;
+      margin-top: 50px;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      color: #212529;
+    }
+    .section-title {
+      font-weight: 600;
+      color: #0d6efd;
+    }
+    .phishing-email {
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      padding: 2rem;
+      white-space: pre-wrap;
+      font-family: 'Source Code Pro', monospace;
+      position: relative;
+    }
+    .red-flag {
+      cursor: pointer;
+      border-bottom: 2px dashed #dc3545;
+      color: #dc3545;
+      font-weight: bold;
+    }
+    .red-flag:hover {
+      background-color: rgba(220, 53, 69, 0.1);
+    }
+    .red-flag.revealed {
+      border-bottom: 2px solid #28a745;
+      color: #28a745;
+    }
+    .checklist-item {
+      list-style-type: none;
+      font-size: 1.1rem;
+    }
+    .checklist-item::before {
+      content: '✔️';
+      color: #28a745;
+      margin-right: 10px;
+    }
+    .card-module {
+      transition: transform 0.2s ease-in-out;
+      cursor: pointer;
+    }
+    .card-module:hover {
+      transform: translateY(-5px);
+    }
+    /* Estilos para la animación de huella digital */
+    #footprint-animation {
+      height: 200px; /* Reducido para que quepa bien */
+      background-color: #e9ecef;
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .footprint-trail {
+      position: absolute;
+      font-size: 1.5rem;
+      animation: fly-out 5s forwards;
+      opacity: 0; /* Empieza invisible */
+    }
+    @keyframes fly-out {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-150px) scale(0.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  
+  <header class="text-center py-4">
+    <a href="academia-inclutech.html" class="btn btn-outline-light">⬅️ Volver a la Academia</a>
+    <h1 class="display-5 mt-3 section-title text-white">Ciberseguridad</h1>
+    <p class="lead text-white">Navega en internet de forma segura.</p>
+  </header>
+
+  <main class="container tutorial-container my-5">
+    
+    <section id="phishing-tutorial" class="mb-5">
+      <h2 class="section-title mb-3 text-center">Módulo 1: El Detective del Phishing</h2>
+      <p>El phishing es una de las estafas más comunes en línea, donde los ciberdelincuentes intentan robar tu información personal haciéndose pasar por entidades de confianza. Aprende a identificar las señales de alerta y protege tus datos.</p>
+      <p class="text-center">¡Ayuda a la comunidad! Haz clic en las "banderas rojas" que encuentres en este correo electrónico sospechoso para descubrir las estafas más comunes.</p>
+      
+      <div class="phishing-email shadow-sm mt-4">
+        De: Soporte Tecnico &lt;support@micuenta.net&gt;
+        Asunto: ¡Alerta de seguridad! Tu cuenta será suspendida
+        
+        Hola,
+        
+        Hemos detectado actividad inusual en su cuenta. Para proteger sus datos, hemos <span class="red-flag" data-info="Urgencia y Amenaza">suspendido temporalmente su acceso</span>.
+        
+        Para reactivar su cuenta y evitar su cierre definitivo, <span class="red-flag" data-info="Solicitud de Datos Personales">necesitamos que verifique su información personal y de pago inmediatamente</span> haciendo clic en el siguiente enlace:
+        
+        <a href="#" class="red-flag" data-info="Enlace Malicioso">micuenta-oficial.com/verificar-ahora</a>
+        
+        Es importante que actúe con <span class="red-flag" data-info="Gramática y Ortografía">rapidez y sigilio</span> para evitar que su información sea <span class="red-flag" data-info="Gramática y Ortografía">comprometida</span>.
+        
+        Gracias por su cooperación.
+      </div>
+      
+      <div id="phishing-feedback" class="mt-4 text-center">
+        <p class="h4">Banderas rojas encontradas: <span id="score">0</span> / 4</p>
+        <div id="phishing-messages"></div>
+      </div>
+    </section>
+
+    <hr class="my-5">
+
+    <section id="password-tutorial" class="mb-5">
+      <h2 class="section-title mb-3 text-center">Módulo 2: Contraseñas Súper Seguras</h2>
+      <p>Las contraseñas son tu primera línea de defensa en el mundo digital. Aprender a crearlas de forma robusta y a gestionarlas adecuadamente es fundamental para evitar accesos no autorizados a tus cuentas.</p>
+      <p class="text-center">Una contraseña es como la llave de tu casa digital. ¡Asegúrate de que sea fuerte y única!</p>
+      <div class="row g-4 mt-3">
+        <div class="col-md-6">
+          <div class="card card-module h-100 shadow-sm p-4">
+            <div class="card-body">
+              <h5 class="card-title">Consejos de un Experto</h5>
+              <ul class="list-unstyled">
+                <li class="checklist-item">Combina letras (mayúsculas y minúsculas), números y símbolos.</li>
+                <li class="checklist-item">Usa al menos 12 caracteres de longitud. Cuanto más larga, mejor.</li>
+                <li class="checklist-item">Evita información personal fácil de adivinar (fechas de nacimiento, nombres de mascotas).</li>
+                <li class="checklist-item">Usa una contraseña diferente para cada cuenta importante.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card card-module h-100 shadow-sm p-4">
+            <div class="card-body">
+              <h5 class="card-title">¡Nunca Hagas Esto!</h5>
+              <ul class="list-unstyled">
+                <li class="checklist-item" style="color: #dc3545;">❌ Usar contraseñas obvias como "123456" o "password".</li>
+                <li class="checklist-item" style="color: #dc3545;">❌ Escribirlas en una nota adhesiva o en tu celular sin protección.</li>
+                <li class="checklist-item" style="color: #dc3545;">❌ Compartirlas con amigos, familiares o compañeros de trabajo.</li>
+                <li class="checklist-item" style="color: #dc3545;">❌ Reutilizar la misma contraseña en múltiples plataformas.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="my-5">
+
+  </main>
+
+  <footer class="bg-primary text-white text-center py-4 mt-5">
+    <p>Inclu-Tech &copy; 2025</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // LÓGICA DEL TUTORIAL: CIBERSEGURIDAD (PHISHING)
+    const redFlags = document.querySelectorAll('.red-flag');
+    const scoreElement = document.getElementById('score');
+    const messagesDiv = document.getElementById('phishing-messages');
+    let score = 0;
+    let revealedFlags = new Set(); // Usar un Set para evitar duplicados
+
+    const feedbackMessages = {
+      'Gramática y Ortografía': 'Las compañías serias suelen tener textos sin errores de gramática.',
+      'Urgencia y Amenaza': 'Los correos de phishing usan el miedo para que actúes sin pensar.',
+      'Solicitud de Datos Personales': 'Nunca compartas tu información sensible. Las empresas nunca te la pedirán por correo.',
+      'Enlace Malicioso': 'El enlace no coincide con el sitio web oficial. ¡Siempre revisa la URL!'
+    };
+
+    redFlags.forEach(flag => {
+      flag.addEventListener('click', () => {
+        const info = flag.getAttribute('data-info');
+        if (!revealedFlags.has(info)) {
+          flag.classList.add('revealed');
+          score++;
+          revealedFlags.add(info);
+          scoreElement.textContent = score;
+          
+          const message = document.createElement('div');
+          message.className = 'alert alert-info mt-2';
+          message.textContent = feedbackMessages[info];
+          messagesDiv.appendChild(message);
+        }
+      });
+    });
+
+    // LÓGICA DEL MÓDULO 3: HUELLA DIGITAL
+    const likeButton = document.getElementById('like-button');
+    const shareButton = document.getElementById('share-button');
+    const animationContainer = document.getElementById('footprint-animation');
+
+    const icons = ['👍', '❤️', '💬', '🔗', '📸', '📱', '📧', '📍', '🔍']; // Más iconos para variedad
+
+    function createFootprint(iconText) {
+      const icon = document.createElement('span');
+      icon.textContent = iconText;
+      icon.className = 'footprint-trail';
+      icon.style.left = `${Math.random() * 80 + 10}%`; // Posición aleatoria X
+      icon.style.bottom = '10%'; // Empieza desde abajo
+      animationContainer.appendChild(icon);
+
+      // Elimina el ícono después de que termine la animación
+      setTimeout(() => {
+        if (animationContainer.contains(icon)) {
+          animationContainer.removeChild(icon);
+        }
+      }, 5000);
+    }
+
+    likeButton.addEventListener('click', () => {
+      createFootprint('👍'); // Genera un pulgar arriba
+      // También se podría generar un ícono aleatorio para simular más actividad
+      // createFootprint(icons[Math.floor(Math.random() * icons.length)]);
+    });
+
+    shareButton.addEventListener('click', () => {
+      createFootprint('🔗'); // Genera un icono de enlace
+      // También se podría generar un ícono aleatorio
+      // createFootprint(icons[Math.floor(Math.random() * icons.length)]);
+    });
+  </script>
+</body>
+</html>

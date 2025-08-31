@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial: Medio Ambiente e Inclusión</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #e8f5e9;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+    }
+    .tutorial-container {
+      max-width: 900px;
+      margin-top: 50px;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .section-title {
+      font-weight: 600;
+      color: #388e3c;
+    }
+    .card-module {
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .card-module:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .recycling-bins-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .recycling-bin {
+      width: 100px;
+      height: 120px;
+      border-radius: 10px;
+      border: 3px solid transparent;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: white;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    .bin-label {
+      font-size: 0.8rem;
+      margin-top: 5px;
+    }
+    #plastic-bin { background-color: #ffc107; } /* Amarillo */
+    #paper-bin { background-color: #0d6efd; } /* Azul */
+    #glass-bin { background-color: #28a745; } /* Verde */
+    #other-bin { background-color: #6c757d; } /* Gris */
+    
+    .recycling-item {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    #item-to-recycle {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    #feedback-message {
+      min-height: 40px;
+      line-height: 40px;
+    }
+    .sign-card {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      height: 100%; /* Para que todas las tarjetas tengan la misma altura */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .sign-image {
+      width: 100%;
+      max-width: 150px; /* Tamaño fijo para las imágenes */
+      height: 150px; /* Altura fija para las imágenes */
+      object-fit: contain; /* Ajusta la imagen dentro del recuadro sin cortarla */
+      border-radius: 8px;
+      margin: 1rem auto; /* Centrar imagen */
+      border: 1px solid #dee2e6;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="text-center py-4">
+    <a href="academia-inclutech.html" class="btn btn-outline-success">⬅️ Volver a la Academia</a>
+    <h1 class="display-5 mt-3 section-title">Medio Ambiente</h1>
+    <p class="lead text-dark">Aprende a cuidar el planeta con acciones sencillas y divertidas.</p>
+  </header>
+
+  <main class="container tutorial-container my-5">
+    
+    <section id="recycling-quiz" class="mb-5 text-center">
+      <h2 class="section-title mb-3">Módulo 1: El Desafío del Reciclaje Inclusivo</h2>
+      <p>El reciclaje es una forma de cuidar el futuro para todos. Ayuda a clasificar estos objetos comunes en la vida diaria de las personas, incluyendo elementos importantes para la inclusión.</p>
+      
+      <div class="card card-module p-4 shadow-sm mt-4">
+        <h5 id="item-to-recycle" class="mb-3"></h5>
+        <div class="recycling-bins-container">
+          <div class="recycling-bin" id="plastic-bin" data-type="plastic">
+            <span class="bin-icon">🥤</span>
+            <div class="bin-label">Plástico</div>
+          </div>
+          <div class="recycling-bin" id="paper-bin" data-type="paper">
+            <span class="bin-icon">📄</span>
+            <div class="bin-label">Papel</div>
+          </div>
+          <div class="recycling-bin" id="glass-bin" data-type="glass">
+            <span class="bin-icon">🍾</span>
+            <div class="bin-label">Vidrio</div>
+          </div>
+          <div class="recycling-bin" id="other-bin" data-type="other">
+            <span class="bin-icon">🔋</span>
+            <div class="bin-label">Otros</div>
+          </div>
+        </div>
+        <div id="feedback-message" class="mt-3 fw-bold"></div>
+      </div>
+    </section>
+
+    <hr class="my-5">
+
+    <section id="three-rs-tutorial" class="mb-5">
+      <h2 class="section-title mb-3 text-center">Módulo 2: Las 3 R's para un Futuro Inclusivo</h2>
+      <p>Cuidar el medio ambiente es construir un futuro más justo y accesible. La regla de las 3 R's nos ayuda a entender cómo nuestras acciones pueden beneficiar a las comunidades más vulnerables y promover un mundo más equitativo.</p>
+      <div class="row g-4 mt-3">
+        <div class="col-md-4">
+          <div class="card card-module h-100 shadow-sm p-4 text-center">
+            <div class="card-body">
+              <h5 class="card-title">🌎 Reducir la Brecha</h5>
+              <p class="card-text">Al **reducir** el consumo de recursos, podemos luchar contra la escasez en comunidades que no tienen fácil acceso a bienes básicos. Por ejemplo, al reducir el uso de agua, garantizamos su disponibilidad para todos.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-module h-100 shadow-sm p-4 text-center">
+            <div class="card-body">
+              <h5 class="card-title">♻️ Reutilizar con Creatividad</h5>
+              <p class="card-text">**Reutilizar** objetos nos permite crear herramientas y recursos de bajo costo que pueden ser vitales en contextos de vulnerabilidad. Un envase de plástico puede convertirse en un recipiente para sembrar, una terapia para una persona con discapacidad visual, o un juguete artesanal para un niño.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-module h-100 shadow-sm p-4 text-center">
+            <div class="card-body">
+              <h5 class="card-title">🤝 Reciclar para Conectar</h5>
+              <p class="card-text">El **reciclaje** genera industrias y empleos. Apoyar a los recicladores de oficio es una forma de inclusión laboral y social. Además, el material reciclado puede ser utilizado para fabricar productos de apoyo, como bastones o prótesis, reduciendo su costo y haciéndolos más accesibles.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="my-5">
+
+    <section id="sign-language-tutorial" class="mb-5 text-center">
+      <h2 class="section-title mb-3">Módulo 3: Señas para un Mundo Más Verde</h2>
+      <p>Aprender la lengua de señas nos permite comunicarnos con más personas y difundir mensajes importantes. Aquí te enseñamos algunas señas relacionadas con el medio ambiente para que puedas compartir tu conocimiento de forma accesible.</p>
+      
+      <div class="row g-4 mt-4 justify-content-center">
+        <div class="col-sm-6 col-md-4">
+          <div class="sign-card shadow-sm">
+            <h5 class="card-title">Reciclar</h5>
+            <img src="https://assets.inclutech.com/sena_reciclar.jpg" class="sign-image" alt="Seña para Reciclar">
+            <p class="mt-3 text-muted">Abre y cierra la mano, como separando objetos.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="sign-card shadow-sm">
+            <h5 class="card-title">Planta / Árbol</h5>
+            <img src="https://assets.inclutech.com/sena_planta.jpg" class="sign-image" alt="Seña para Planta">
+            <p class="mt-3 text-muted">Simula el crecimiento de una planta con tus dedos.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="sign-card shadow-sm">
+            <h5 class="card-title">Agua</h5>
+            <img src="https://assets.inclutech.com/sena_agua.jpg" class="sign-image" alt="Seña para Agua">
+            <p class="mt-3 text-muted">Forma una "W" con los dedos y muévela hacia abajo.</p>
+          </div>
+        </div>
+      </div>
+      <p class="mt-4 text-muted"><strong>Nota:</strong> Estas son representaciones simplificadas. La Lengua de Señas Colombiana (LSC) tiene variaciones regionales. Para un aprendizaje completo, busca recursos locales y comunidades de personas sordas.</p>
+    </section>
+
+  </main>
+
+  <footer class="bg-success text-white text-center py-4 mt-5">
+    <p>Inclu-Tech &copy; 2025</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Lógica del Módulo 1: El Desafío del Reciclaje Inclusivo
+    const items = [
+      { name: "Pilas de audífonos", correctBin: "other", message: "¡Correcto! Las pilas son residuos especiales y se reciclan de forma separada para evitar contaminar.", icon: "🎧" },
+      { name: "Bolsa de suero", correctBin: "plastic", message: "¡Genial! Las bolsas de suero, una vez limpias, pueden ir al cesto de plástico.", icon: "💧" },
+      { name: "Folletos en Braille", correctBin: "paper", message: "¡Así es! El papel y el cartón reciclado ayudan a salvar árboles y se pueden usar para crear nuevos materiales educativos.", icon: "📚" },
+      { name: "Envase de medicamento", correctBin: "plastic", message: "¡Correcto! Los envases de plástico de medicamentos, una vez vacíos, van en el cesto amarillo.", icon: "💊" },
+      { name: "Botella de bebida deportiva", correctBin: "plastic", message: "¡Genial! Las botellas de plástico se reciclan en el cesto amarillo.", icon: "🥤" },
+      { name: "Restos de comida del almuerzo", correctBin: "other", message: "¡Exacto! Los restos de comida son residuos orgánicos que se pueden usar para compostaje y nutrir el suelo para agricultura inclusiva.", icon: "🍎" },
+      { name: "Envase de prótesis", correctBin: "other", message: "¡Correcto! Los residuos de materiales especializados como los de las prótesis deben ser gestionados de forma adecuada, por eso van en 'Otros'.", icon: "🦾" }
+    ];
+
+    let currentItemIndex = 0;
+    const itemToRecycleEl = document.getElementById('item-to-recycle');
+    const bins = document.querySelectorAll('.recycling-bin');
+    const feedbackEl = document.getElementById('feedback-message');
+
+    function loadNewItem() {
+      currentItemIndex = Math.floor(Math.random() * items.length);
+      const item = items[currentItemIndex];
+      itemToRecycleEl.innerHTML = `<span class="item-icon">${item.icon}</span> ${item.name}`;
+      feedbackEl.textContent = "";
+      feedbackEl.classList.remove('text-success', 'text-danger');
+      bins.forEach(bin => bin.style.borderColor = 'transparent');
+    }
+
+    bins.forEach(bin => {
+      bin.addEventListener('click', () => {
+        const selectedBin = bin.getAttribute('data-type');
+        const correctBin = items[currentItemIndex].correctBin;
+
+        if (selectedBin === correctBin) {
+          feedbackEl.textContent = items[currentItemIndex].message;
+          feedbackEl.classList.add('text-success');
+          bin.style.borderColor = '#28a745';
+          setTimeout(loadNewItem, 5000);
+        } else {
+          feedbackEl.textContent = "Incorrecto. ¡Intenta de nuevo!";
+          feedbackEl.classList.add('text-danger');
+          bin.style.borderColor = '#dc3545';
+        }
+      });
+    });
+
+    // Cargar el primer elemento al iniciar
+    document.addEventListener("DOMContentLoaded", loadNewItem);
+  </script>
+</body>
+</html>
